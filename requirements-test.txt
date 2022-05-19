@@ -11,4 +11,4 @@ gitchangelog
 mkdocs
 astropy
 #--extra-index-url https://artefact.skao.int/repository/pypi-internal/simple
-rascil==0.6.0
+#rascil==0.6.0
