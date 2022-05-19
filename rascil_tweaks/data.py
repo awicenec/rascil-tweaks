@@ -32,8 +32,8 @@ logger = logging.getLogger(__name__)
 # @brief MyData
 # @details Template app for demonstration only!
 # Replace the documentation with whatever you want/need to show in the DALiuGE
-# workflow editor. The dataclass parameter should contain the relative Pythonpath
-# to import MyApp.
+# workflow editor. The dataclass parameter should contain the relative 
+# Pythonpath to import MyApp.
 #
 # @par EAGLE_START
 # @param category DataDrop
@@ -64,4 +64,4 @@ class MyDataDROP(AbstractDROP):
 
     @property
     def dataURL(self):
-        return f"Hello from the dataURL method"
+        return "Hello from the dataURL method"
