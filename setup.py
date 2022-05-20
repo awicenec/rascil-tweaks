@@ -2,7 +2,7 @@
 import io
 import os
 from setuptools import find_packages, setup
-
+from glob import glob
 
 def read(*paths, **kwargs):
     """Read the contents of a text file safely.
@@ -38,9 +38,10 @@ setup(
     long_description_content_type="text/markdown",
     author="awicenec",
     packages=find_packages(exclude=["tests", ".github"]),
-    package_data={
-        "data": ["*"],
-    },
+    data_files=[
+        ("data/models", ["data/models/GLEAM_EGC.fits"]),
+        ("data/configurations",glob("data/configurations/*"))
+        ],
     install_requires=read_requirements("requirements.txt"),
     extras_require={"test": read_requirements("requirements-test.txt")},
 )
