@@ -3,6 +3,7 @@ import io
 import os
 from setuptools import find_packages, setup
 from glob import glob
+from sysconfig import get_path
 
 def read(*paths, **kwargs):
     """Read the contents of a text file safely.
@@ -15,7 +16,7 @@ def read(*paths, **kwargs):
     content = ""
     with io.open(
         os.path.join(os.path.dirname(__file__), *paths),
-        encoding=kwargs.get("encoding", "utf8"),
+        encoding=kwargs.get("encoding", "utf8")
     ) as open_file:
         content = open_file.read().strip()
     return content
@@ -39,8 +40,8 @@ setup(
     author="awicenec",
     packages=find_packages(exclude=["tests", ".github"]),
     data_files=[
-        ("data/models", ["data/models/GLEAM_EGC.fits"]),
-        ("data/configurations",glob("data/configurations/*"))
+        (get_path("purelib")+"/data/models", ["data/models/GLEAM_EGC.fits"]),
+        (get_path("purelib")+"/data/configurations",glob("data/configurations/*"))
         ],
     install_requires=read_requirements("requirements.txt"),
     extras_require={"test": read_requirements("requirements-test.txt")},
