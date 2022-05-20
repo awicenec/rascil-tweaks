@@ -38,6 +38,9 @@ setup(
     long_description_content_type="text/markdown",
     author="awicenec",
     packages=find_packages(exclude=["tests", ".github"]),
+    package_data={
+        "data": ["*"],
+    },
     install_requires=read_requirements("requirements.txt"),
     extras_require={"test": read_requirements("requirements-test.txt")},
 )
