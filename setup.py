@@ -40,8 +40,8 @@ setup(
     author="awicenec",
     packages=find_packages(exclude=["tests", ".github"]),
     data_files=[
-        ("data/models", ["data/models/GLEAM_EGC.fits"]),
-        ("data/configurations",glob("data/configurations/*"))
+        ("", ["data/models/GLEAM_EGC.fits"]),
+        ("",glob("data/configurations/*"))
         ],
     install_requires=read_requirements("requirements.txt"),
     extras_require={"test": read_requirements("requirements-test.txt")},
