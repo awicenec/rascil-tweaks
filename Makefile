@@ -1,6 +1,8 @@
 .ONESHELL:
 ENV_PREFIX=$(shell python -c "if __import__('pathlib').Path('.venv/bin/pip').exists(): print('.venv/bin/')")
 USING_POETRY=$(shell grep "tool.poetry" pyproject.toml && echo "yes")
+PROJECT_DIR=$(shell basename ${PWD})
+DLG_ROOT=$(HOME)/dlg
 
 .PHONY: help
 help:             ## Show the help.
@@ -117,6 +119,10 @@ switch-to-poetry: ## Switch to poetry package manager.
 init:             ## Initialize the project based on an application template.
 	@./.github/init.sh
 
+dlg-install:
+	@mkdir -p $(DLG_ROOT)/tmp/
+	@cp -r ${PWD}/* $(DLG_ROOT)/tmp/$(PROJECT_DIR)/.
+	@docker exec -u root -t daliuge-engine bash -c "pip install --prefix $(DLG_ROOT)/code ${DLG_ROOT}/tmp/$(PROJECT_DIR)"
 
 # This project has been generated from ICRAR/daliuge-component-template
 # __author__ = 'ICRAR'
