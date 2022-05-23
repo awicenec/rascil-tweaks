@@ -5,27 +5,21 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-Awesome rascil_tweaks created by awicenec
+rascil_tweaks created by awicenec
+
+## Introduction
+
+This small repo contains a few contributed daliuge functions and scripts in particular to get the SKA ticket https://jira.skatelescope.org/browse/YAN-969 resolved. The functions here are fixing some issues whith a few RASCIL functions and are quite specific. The shell scripts are meant to enable verification of the ticket results.
 
 ## Installation
 
-There are multiple options for the installation, depending on how you are intending to run the DALiuGE engine, directly in a virtual environment (host) or inside a docker container. You can also install it either from PyPI (latest released version).
+Clone this repo into a directory of your choice.
 
-## Install it from PyPI
+## Intended Usage
 
-### Engine in virtual environment
-```bash
-pip install rascil_tweaks
-```
-This will only work after releasing the project to PyPi.
-### Engine in Docker container
-```bash
-docker exec -t daliuge-engine bash -c 'pip install --prefix=$DLG_ROOT/code rascil_tweaks'
-```
-## Usage
-For example the MyComponent component will be available to the engine when you specify 
-```
-rascil_tweaks.apps.MyAppDROP
-```
-in the AppClass field of a Python Branch component. The EAGLE palette associated with these components are also generated and can be loaded directly into EAGLE. In that case all the fields are correctly populated for the respective components.
+In the root directory of this repo execute the main shell script
 
+```
+./yan-969.sh
+```
+This will download, build and run the whole DALiuGE system, including EAGLE and launch a browser tab with the test graph related to YAN-969. Follow the instructions shown on the terminal where the script is being executed. The graph will be executed on the locally running engine. It uses a test data set which is downloaded during the graph execution. The last two components in the graph will report an error, because the generated image is empty and no sky components can be found.
