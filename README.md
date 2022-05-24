@@ -20,6 +20,13 @@ Clone this repo into a directory of your choice.
 In the root directory of this repo execute the main shell script
 
 ```
-./yan-969.sh
+./yan969.sh
 ```
 This will download, build and run the whole DALiuGE system, including EAGLE and launch a browser tab with the test graph related to YAN-969. Follow the instructions shown on the terminal where the script is being executed. The graph will be executed on the locally running engine. It uses a test data set which is downloaded during the graph execution. The last two components in the graph will report an error, because the generated image is empty and no sky components can be found.
+
+Since the process above does take significant amount of time it is also possible to use the released docker images from dockerHub instead by executing the script
+
+```
+./yan969-docker.sh
+```
+
