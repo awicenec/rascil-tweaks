@@ -2,6 +2,7 @@
 # script builds all of daliuge and EAGLE, installs rascil and the rascil-tweaks
 # (including a minimal rascil-data directory) and starts EAGLE with the YAN-970
 # test-graph loaded.
+set -e
 
 function get_latest_tag {
     tmpfile=$(mktemp /tmp/yan969-docker.XXXXXX)

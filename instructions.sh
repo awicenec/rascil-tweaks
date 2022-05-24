@@ -6,7 +6,7 @@ wait_keypress () {
     read -n 1 a
     printf "\n"
     case $a in
-    q* ) exit 1;;
+    q* ) return 1;;
     * ) break ;;
     esac
     done
