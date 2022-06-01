@@ -15,6 +15,11 @@ This small repo contains a few contributed daliuge functions and scripts in part
 
 Clone this repo into a directory of your choice.
 
+Manual installation can be done using this command once the daliuge-engine is running:
+```
+docker exec -u root -t daliuge-engine bash -c "pip install --prefix /home/awicenec/dlg/code git+https://github.com/awicenec/rascil-tweaks.git"
+```
+
 ## Intended Usage
 
 In the root directory of this repo execute the main shell script
