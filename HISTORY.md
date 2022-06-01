@@ -4,6 +4,12 @@ Changelog
 
 (unreleased)
 ------------
+- Added create_MWA_configuration function. [Andreas Wicenec]
+
+
+v0.1.6 (2022-06-01)
+-------------------
+- Release: version v0.1.6 🚀 [Andreas Wicenec]
 - Skipping MAC tests. [awicenec]
 - Update README.md. [awicenec]
 
