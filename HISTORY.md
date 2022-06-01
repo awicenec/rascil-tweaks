@@ -4,6 +4,13 @@ Changelog
 
 (unreleased)
 ------------
+- Skipping MAC tests. [awicenec]
+- Update README.md. [awicenec]
+
+
+v0.1.0 (2022-05-24)
+-------------------
+- Release: version v0.1.0 🚀 [Andreas Wicenec]
 - Fixed catching return from function. [Andreas Wicenec]
 - Various updates to scripts and instructions. [Andreas Wicenec]
 - Updated README. [Andreas Wicenec]
