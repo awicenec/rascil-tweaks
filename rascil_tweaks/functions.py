@@ -8,12 +8,20 @@ from typing import Any
 import astropy.units as units
 import astropy.wcs as wcs
 import numpy
-from rascil.data_models.memory_data_models import BlockVisibility, Image
+from astropy.coordinates import EarthLocation
+from rascil.data_models.memory_data_models import (
+    BlockVisibility,
+    Configuration,
+    Image,
+)
 from rascil.data_models.parameters import get_parameter
 from rascil.data_models.polarisation import PolarisationFrame
 from rascil.processing_components.fourier_transforms import ifft
 from rascil.processing_components.image.operations import (
     create_image_from_array,
+)
+from rascil.processing_components.simulation.configurations import (
+    create_configuration_from_file,
 )
 
 log = logging.getLogger("rascil-logger")
@@ -37,6 +45,21 @@ def polFrameExtract(vis) -> Any:
 
 def wcsExtract(im):
     return im.image_acc.wcs
+
+
+def create_MWA_configuration(
+    filename: str = "MWAtiles.csv", **kwargs
+) -> Configuration:
+    """
+    Create a configuration object for the MWA using the MWA tile positions from
+    https://www.mwatelescope.org/images/documents/Merged%20MWA%20tile%20coordinates%20-%20AW%202018-06-21.xlsx
+    """
+    mwa_location = EarthLocation(
+        lon="116:40:14.93", lat="-26:42:11.95", height=377
+    )
+    return create_configuration_from_file(
+        filename, mwa_location, diameter=5 * numpy.sqrt(2)
+    )
 
 
 def polarisation_frame_from_names(names):
