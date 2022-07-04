@@ -2,6 +2,17 @@ Changelog
 =========
 
 
+(unreleased)
+------------
+- Added create_box_convolutionfunction to fix float32 issue. [Andreas
+  Wicenec]
+
+
+v0.1.10 (2022-07-04)
+--------------------
+- Release: version v0.1.10 🚀 [Andreas Wicenec]
+
+
 v0.1.9 (2022-07-04)
 -------------------
 - Release: version v0.1.9 🚀 [Andreas Wicenec]
