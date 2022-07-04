@@ -47,6 +47,10 @@ def wcsExtract(im):
     return im.image_acc.wcs
 
 
+def cfExtract(cf):
+    return cf[1]
+
+
 def create_MWA_configuration(
     filename: str = "MWAtiles.csv", **kwargs
 ) -> Configuration:
