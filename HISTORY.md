@@ -4,6 +4,12 @@ Changelog
 
 (unreleased)
 ------------
+- Added cf_extract. [Andreas Wicenec]
+
+
+v0.1.8 (2022-07-04)
+-------------------
+- Release: version v0.1.8 🚀 [Andreas Wicenec]
 - Added manual install line to README. [Andreas Wicenec]
 
 
