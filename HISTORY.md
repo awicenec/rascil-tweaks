@@ -2,8 +2,9 @@ Changelog
 =========
 
 
-(unreleased)
-------------
+v0.1.9 (2022-07-04)
+-------------------
+- Release: version v0.1.9 🚀 [Andreas Wicenec]
 - Added cf_extract. [Andreas Wicenec]
 
 
