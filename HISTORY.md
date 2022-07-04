@@ -4,6 +4,12 @@ Changelog
 
 (unreleased)
 ------------
+- Added manual install line to README. [Andreas Wicenec]
+
+
+v0.1.7 (2022-06-01)
+-------------------
+- Release: version v0.1.7 🚀 [Andreas Wicenec]
 - Added create_MWA_configuration function. [Andreas Wicenec]
 
 
