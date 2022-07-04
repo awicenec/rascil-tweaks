@@ -266,3 +266,46 @@ def create_image_from_visibility(vis: BlockVisibility, **kwargs) -> Image:
         chunksize=chunksize,
     )
     return im
+
+
+def create_box_convolutionfunction(
+    im, oversampling=1, support=1, polarisation_frame=None
+):
+    """Fill a box car function into a ConvolutionFunction
+
+    Also returns the griddata correction function as an image
+
+    :param im: Image template
+    :param oversampling: Oversampling of the convolution function in uv space
+    :return: griddata correction Image, griddata kernel as ConvolutionFunction
+    """
+    ##assert isinstance(im, Image)
+    cf = create_convolutionfunction_from_image(
+        im, oversampling=1, support=4, polarisation_frame=polarisation_frame
+    )
+
+    nchan, npol, _, _ = im["pixels"].data.shape
+
+    cf["pixels"].data[...] = 0.0 + 0.0j
+    cf["pixels"].data[..., 2, 2] = 1.0 + 0.0j
+
+    # Now calculate the griddata correction function as an image with the same coordinates as the image
+    # which is necessary so that the correction function can be applied directly to the image
+    nchan, npol, ny, nx = im["pixels"].data.shape
+    nu = numpy.abs(coordinates(nx))
+
+    gcf1d = numpy.sinc(nu)
+    gcf = numpy.outer(gcf1d, gcf1d)
+    gcf = 1.0 / gcf
+
+    gcf_data = numpy.zeros_like(im["pixels"].data)
+    gcf_data[...] = gcf[numpy.newaxis, numpy.newaxis, ...]
+    gcf_image = create_image_from_array(
+        gcf_data, im.image_acc.wcs, im.image_acc.polarisation_frame
+    )
+
+    assert cf["pixels"].data.dtype == "complex", cf["pixels"].data.dtype
+    assert gcf_image["pixels"].data.dtype == "float32", gcf_image[
+        "pixels"
+    ].data.dtype
+    return gcf_image, cf
